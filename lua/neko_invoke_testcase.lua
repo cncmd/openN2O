@@ -2,20 +2,17 @@ package.cpath = './?.so;'
 
 print(package.loadlib);
 
-install,b,c = package.loadlib("./example.so","luaopen_example");
+install,b,c = package.loadlib("./build/example.so","luaopen_example");
 
 print(install,b,c);
 
 install();
 
-print("vm test")
-
 local vm = example.initVM();
 print(vm);
 example.selectVM(vm);
---print("1");
 
-local module = example.loadModule("mymodule.n", "test")
+local module = example.loadModule("./neko_module/mymodule.n", "test")
 print(module);
 example.executeModule(module);
 
