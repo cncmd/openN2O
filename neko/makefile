@@ -1,6 +1,5 @@
 TRAGET=nvmdso.so
 ALL=nvmdso_wrap.o nvmdso.o
-.PHONEY clean
 
 clean:
 	rm -f *.so *.o
