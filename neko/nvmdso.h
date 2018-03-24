@@ -1,19 +1,17 @@
-
-%module example
-%{
 #include <neko_vm.h>
-%}
-
-#include "example.h"
-
-
-extern value moduleCollections = NULL;
 neko_vm * initVM (void) ;
-void selectVM(neko_vm * vm) ;
-void executeModule(value module);
+void  selectVM(neko_vm * vm) ;
+
+void executeModule(value module) ;
 
 
-//=================================module==========
+
+void initModuleCollections () ;
+
+value addModuleToCollection (char * k, value m);
+value loadModule(char * str/**模块路径*/ , char * aliasName);
+
+value getModuleFromCollection(value k);
 
 /***
  *  callModuleMethod
@@ -25,21 +23,7 @@ void executeModule(value module);
  *	funcParam 数组   可以没有，如果没有的话调用的是无参数方法
  *	@return value 调用结果
  */
-value callModuleMethod (value params) ;
-/***
- *  模块的集合
- */
-//extern value moduleCollections = NULL;
-
-value getModuleFromCollection(value k);
-
-void initModuleCollections () ;
-
-value addModuleToCollection (char * k, value m) ;
-value loadModule(char * str/**模块路径*/ , char * aliasName);
-
-
-
+value callModuleMethod (value params);
 
 /////////==================std;
 /***
@@ -48,23 +32,29 @@ value loadModule(char * str/**模块路径*/ , char * aliasName);
  * @return value
  * 需要拆分到一个std的lib里
  */
+
+char * getObjectKeyString(value obj, char * k);
+void setObjectKeyString (value obj, char * k , char * v);
+
 value getObject();
 value getArray(int size);
 char * getObjectString(value obj, char * k);
+
 /***
  * setObjectProb
  * 获取一个可以回收的table
  * @return value
  * 需要拆分到一个std的lib里
  */
+
 void setObjectProb(value obj, char * k, value v) ;
 void setObjectInt(value obj, char * k, int v);
 void setObjectString (value obj, char * k , char * v);
 void setObjectBoolean(value obj, char * k, int  v);
 void setObjectNumber(value obj, char * k, double  v);
 void print(value v) ;
-
+///================test
 
 void test ();
-void testGetVoidPoint(int a[10]) ;
 
+void testGetVoidPoint(int a[10]) ;
