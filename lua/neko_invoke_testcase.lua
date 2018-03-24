@@ -2,7 +2,7 @@ package.cpath = '../lib/?.so;'
 
 print(package.loadlib);
 
-install,b,c = package.loadlib("../build/example.so","luaopen_example");
+install,b,c = package.loadlib("../build/nvmdso.so","luaopen_example");
 
 print(install,b,c);
 

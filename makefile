@@ -7,3 +7,7 @@ T1:
 
 all:$(ALL)
 	echo "all build done"
+	
+	
+install:
+	echo "install"
