@@ -2,7 +2,7 @@
 %module example
 %{
 #include <neko_vm.h>
-#include "example.h"
+#include "nvmdso.h"
 %}
 
 
