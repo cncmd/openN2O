@@ -1,8 +1,8 @@
-package.cpath = '../lib/?.so;'
+package.cpath = './build/?.so;'
 
 print(package.loadlib);
 
-install,b,c = package.loadlib("../build/nvmdso.so","luaopen_example");
+install,b,c = package.loadlib("./build/nvmdso.so","luaopen_example");
 
 print(install,b,c);
 
@@ -12,7 +12,7 @@ local vm = example.initVM();
 print(vm);
 example.selectVM(vm);
 
-local module = example.loadModule("../neko_module/mymodule.n", "test")
+local module = example.loadModule("./neko_module/mymodule.n", "test")
 print(module);
 example.executeModule(module);
 
